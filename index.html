@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ペットボトル</title>
+    <title>1ペットボトル</title>
     <style>
         body { margin: 0; }
         canvas { display: block; }
@@ -54,6 +54,15 @@
 
     // ペットボトルをシーンに追加
     scene.add(bottle);
+    
+    // 床面を追加
+    const planeGeometry = new THREE.PlaneGeometry(20, 20);
+    const planeMaterial = new THREE.ShadowMaterial({ opacity: 0.2 });
+    const plane = new THREE.Mesh(planeGeometry, planeMaterial);
+    plane.rotation.x = -Math.PI / 2;
+    plane.position.y = 0;
+    plane.receiveShadow = true;
+    scene.add(plane);
 
 
     // カメラの位置を設定
