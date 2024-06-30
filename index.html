@@ -38,43 +38,13 @@
     // ペットボトルの形状を定義
     const points = [];
     points.push(new THREE.Vector2(0, 0)); // 底
-    points.push(new THREE.Vector2(1.8, 0)); // 底の直径
-    points.push(new THREE.Vector2(1.6, 1)); // 少し絞る
-    points.push(new THREE.Vector2(1.6, 5)); // ボトル本体
-    points.push(new THREE.Vector2(1.4, 5.5)); // 上部に向かって絞る
-    points.push(new THREE.Vector2(1.4, 6)); // 首の部分の開始
-    points.push(new THREE.Vector2(1.1, 6.5)); // 首の部分
-    points.push(new THREE.Vector2(1.1, 7)); // キャップの下端
-    points.push(new THREE.Vector2(1, 7)); // キャップの下部
-    points.push(new THREE.Vector2(1, 7.5)); // キャップの上部
-
-    const latheGeometry = new THREE.LatheGeometry(points, 32);
-    const latheMaterial = new THREE.MeshStandardMaterial({ color: 0x7f7f7f });
-    const lathe = new THREE.Mesh(latheGeometry, latheMaterial);
-    lathe.castShadow = true;
-    bottle.add(lathe);
-
-    // ボトル本体の凹凸を作成
-    const extrusionSettings = {
-        steps: 1,
-        depth: 0.2,
-        bevelEnabled: false
-    };
-    const shape = new THREE.Shape();
-    shape.moveTo(1.6, 1);
-    shape.lineTo(1.4, 1);
-    shape.lineTo(1.4, 5);
-    shape.lineTo(1.6, 5);
-    shape.lineTo(1.6, 1);
-    
-    const extrudeGeometry = new THREE.ExtrudeGeometry(shape, extrusionSettings);
-    const extrudeMaterial = new THREE.MeshStandardMaterial({ color: 0x7f7f7f });
-    for (let i = 0; i < 8; i++) {
-        const extrusion = new THREE.Mesh(extrudeGeometry, extrudeMaterial);
-        extrusion.rotation.y = (Math.PI / 4) * i;
-        extrusion.position.y = 3;
-        bottle.add(extrusion);
-    }
+    points.push(new THREE.Vector2(2, 0)); // 底の直径
+    points.push(new THREE.Vector2(1.8, 1)); // 上に向かって少し絞る
+    points.push(new THREE.Vector2(1.5, 6)); // ボトル本体
+    points.push(new THREE.Vector2(1, 7)); // 首の部分
+    points.push(new THREE.Vector2(1.1, 8)); // キャップの開始位置
+    points.push(new THREE.Vector2(0.9, 8.2)); // キャップの上
+    points.push(new THREE.Vector2(0, 8.2)); // キャップの上端
 
     // ペットボトルをシーンに追加
     scene.add(bottle);
