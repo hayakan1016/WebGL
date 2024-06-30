@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>ペットボトル</title>
+    <title>瓶</title>
     <style>
         body { margin: 0; }
         canvas { display: block; }
@@ -32,24 +32,24 @@
     directionalLight.castShadow = true;
     scene.add(directionalLight);
 
-    // ペットボトルのグループを作成
+    //瓶のグループを作成
     const bottle = new THREE.Group();
 
-    // ペットボトルの形状を定義
+    // 瓶の形状を定義
     const points = [];
     points.push(new THREE.Vector2(0, 0)); // 底
     points.push(new THREE.Vector2(2, 0)); // 底の直径
     points.push(new THREE.Vector2(1.8, 1)); // 上に向かって少し絞る
-    points.push(new THREE.Vector2(1.5, 6)); // ボトル本体
+    points.push(new THREE.Vector2(1.5, 6)); // 瓶本体
     points.push(new THREE.Vector2(1.2, 7)); // 首の部分
-    points.push(new THREE.Vector2(1.2, 7.4)); // キャップの下端
-    points.push(new THREE.Vector2(1, 7.4)); // キャップの曲線部分
-    points.push(new THREE.Vector2(1, 7.6)); // キャップの曲線部分
-    points.push(new THREE.Vector2(1.1, 7.8)); // キャップの曲線部分
-    points.push(new THREE.Vector2(1.1, 8.2)); // キャップの上部
-    points.push(new THREE.Vector2(0.9, 8.2)); // キャップの上部
-    points.push(new THREE.Vector2(0.9, 8.4)); // キャップの上端
-    points.push(new THREE.Vector2(0, 8.4)); // キャップの上端
+    points.push(new THREE.Vector2(1.2, 7.4)); // 下端
+    points.push(new THREE.Vector2(1, 7.4)); // 瓶の曲線部分
+    points.push(new THREE.Vector2(1, 7.6)); // 瓶の曲線部分
+    points.push(new THREE.Vector2(1.1, 7.8)); // 瓶の曲線部分
+    points.push(new THREE.Vector2(1.1, 8.2)); // 瓶の上部
+    points.push(new THREE.Vector2(0.9, 8.2)); // 瓶の上部
+    points.push(new THREE.Vector2(0.9, 8.4)); // 瓶の上端
+    points.push(new THREE.Vector2(0, 8.4)); // 瓶の上端
 
     const latheGeometry = new THREE.LatheGeometry(points, 32);
     const latheMaterial = new THREE.MeshStandardMaterial({ color: 0x7f7f7f });
@@ -57,7 +57,7 @@
     lathe.castShadow = true;
     bottle.add(lathe);
 
-    // ペットボトルをシーンに追加
+    // 瓶をシーンに追加
     scene.add(bottle);
 
     // 床面を追加
